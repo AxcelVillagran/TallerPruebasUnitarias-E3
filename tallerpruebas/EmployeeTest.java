@@ -34,6 +34,37 @@ class EmployeeTest {
 				assertEquals(444.0,Math.round(e4.cs()));
 	}
 	
+	@Test
+	void calculateYearBonusWorkerUSDtest() {
+		Employee e1 = new Employee(100,"USD",10,EmployeeType.Worker);
+		//caso en que empleado es worker y gana en USD
+		float valor = e1.CalculateYearBonus();
+		assertEquals(386,valor);
+		
+	}
+	@Test
+	void calculateYearBonusManagerUSDtest(){
+		Employee e1 = new Employee(110,"USD",10,EmployeeType.Manager);
+		//caso en que empleado es Manager y gana en USD
+		float valor = e1.CalculateYearBonus();
+		assertEquals(496,valor);
+	}
+	@Test
+	void calculateYearBonusSupervisorUSDtest(){
+		Employee e1 = new Employee(105,"USD",10,EmployeeType.Supervisor);
+		//caso en que empleado es Supervisor y gana en USD
+		float valor = e1.CalculateYearBonus();
+		assertEquals(298,valor);
+	}
+	
+	@Test
+	void monedaDistintatest(){
+		Employee e1 = new Employee(105,"EUR",10,EmployeeType.Worker);
+		//caso en que empleado es worker y gana en otra moneda
+		float valor = e1.CalculateYearBonus();
+		assertEquals(386,valor);
+	}
+	
 
 
 }
